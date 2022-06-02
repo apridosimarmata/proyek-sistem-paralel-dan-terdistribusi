@@ -25,7 +25,7 @@ def access_token_required(f):
 @app.route('/')
 @access_token_required
 def index():
-    reservations = requests.get('http://staff-service:5004/list')
+    reservations = requests.get('http://res-service:5000/list')
     return render_template('index.html', reservations =  json.loads(reservations.content))
 
 if __name__ == '__main__':
